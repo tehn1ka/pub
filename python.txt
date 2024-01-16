@@ -1,0 +1,48 @@
+Why Python
+Easy and intuitive
+Free and Open Source
+Can be widely used for variety of tasks
+
+
+Print function keyword arguments:
+end=”” sluzi da spoji print u koji se upise kao argument I sledeci u jednu liniju – takoreci da ih spoji
+sep=”” po default se argumenti razdvajaju sa praznim prostorom (Space), sep je separator skraceno I moze da setuje zamenu za prazan proctor
+print je built-in funkcija koja nam 
+
+litteral
+	Integers
+	Floating point numbers
+	Strings
+	Boleans
+
+
+Operators
+	Exponential ** - tipa 2 na 3 je 8 => 2 ** 3 == 8 ako je bilo koji od brojeva float I rezultat je float
+	Multiplication * - tipa 2 puta 3 je 6 => 2 * 3 == 6 ako je bilo koji od brojeva float I rezultat je float
+	Division / - tipa 10 podeljeno sa 2 je 5 => 10 / 2 == 5.0 rezultat je uvek float
+	Floor division // ili integer divisional operator – tipa 10 podeljeno sa 2 je 5 => 10 // 2 == 5 ako su oba broja int I rezultat je int. Takodje zaokruzuje float na manju int vrednost 6/4 == 1.5 a u ovom slucaju je 1.0
+	Modulo % - tipa 4 % 2 rezultat je 2 I nema ostatka dok 5 % 2 je 1 jer je 4 deljivo sa 2 I 1 je ostatak
+	Addition + - tipa 6 + 4 je 10 ako je bilo koji od brojeva float I rezultat je float, inace je int
+	Subtraction - - tipa 6 – 4 je 2 ako je bilo koji od brojeva float I rezultat je float
+
+Prioriteti kod operatora
+	Prvo su unary operators -2 ili -10
+	Exponential **
+	Multiplication *, Division /, Floor division //, Modulo %
+	Binary +  –
+
+
+Variables
+Bucket to store value
+Upercase, lovercase, digits and underscore, must start with letter
+
+cost_of_apple = 7
+amount_of_apples = 2
+cost_of_apple = cost_of_apple + 2 ili cost_of_apples += 2
+	
+Variable nam omogucavaju da cuvamo vrednost bilo kog tipa
+A variable has a valid name (letter, digits, underscore, nor a reserved keyword)
+Variable can be redeclared.
+We can use shortcut operators in order to cleanly redeclare a variable
+	
+
