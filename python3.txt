@@ -1,0 +1,158 @@
+Functions
+A part of code that's used to cause an effect or evaluate a value
+
+Can come from:
+• Python (built-in functions)
+    - print()
+    - input()
+    - len()
+• Modules
+    - can be inported
+• Your own code
+    - we need to define function and add it's functionality
+
+It happens many times that we want to repeat certain part of our code. How ever the more we repeat it the higher the chance is of exidentaly introducing bugs
+
+
+
+DEFININF AND CALLING THE FUNCTION
+
+input1 = int(input("Enter a number: "))
+input2 = int(input("Enter a number: "))
+input3 = int(input("Enter a number: "))
+input4 = int(input("Enter a number: "))
+input5 = int(input("Enter a number: "))
+
+Instead we can isolate it in to it's own function
+
+In our case lets call the function input_number
+
+Using keyword def we are defining the function
+
+def input_number():
+    return int(input("Enter a number: "))
+
+def - Python built-in keyword which is short for deffinition. It lets Python know that we want to create new function
+It is followed by the name of the function input_function and two prenteces followed by a colon
+next is a function body which is what the function is all about. it contain instruction that we want the function to execute whenever we use our function in our code.
+
+in this case function should prompt to user to enter a number using the input function and automatically converting it to intiger by using int
+
+return keyword instructs python that it should not just execute certen code but should also return certain value. In our case it should return the value that the user wrote in the console
+
+Now we can just change the value of our variables
+
+input1 = input_number()
+input2 = input_number()
+input3 = input_number()
+input4 = input_number()
+input5 = input_number()
+
+It is important to remember that we can not invoke function that python does not know about yet - it can not be defined below the line in which we are trying to invoke it.
+
+input1 = input_number()
+
+def input_number():
+    return int(input("Enter a number: "))
+
+
+
+Parameters, arguments and return values
+
+Python also alows us to pass the values to a function. We can pass this values between the prenteces. 
+
+def input_number(num):
+    return int(input("Enter a number: ")) * num
+
+Our input_number function now has a parameter called num. In order to specifi the value of num we pass an argument.
+
+In case we want the value of the user input multiplied by 8, we need to pass 8 as an argument to the input_number function, and value of num in this case is 8
+
+input1 = input_number(8)
+
+>>> input1
+Entre a number: 10
+>>> print(input1)
+80
+
+The function can have multiple parameters which are all separated by a comma. In that case the position of the arguments matters.
+
+def input_number(num1, num2):
+    return int(input("Enter a number: ")) * num1 - num2
+
+input1 = input_number(8, 12)
+
+In this case the first value of the argument is the value of parameter num1, and the second of num2. To explain it first value of argument is value of first parameter, second value of argument is the value of second parameter etc.
+If we do not want position to matter we can pass named parameters
+
+
+def input_number(num1, num2):
+    return int(input("Enter a number: ")) * num1 - num2
+
+input1 = input_number(num2 = 8, num1 = 12)
+
+Wer can also set a default value of parameter
+
+def input_number(num1 = 5):
+    return int(input("Enter a number: ")) * num1
+
+input1 = input_number()
+
+Since we do not pass the argument value Python will use the default value of 5.
+
+
+Scope of variables
+
+All parameters and variables declared within the function body are scoped to just that function. It means that variables declared within function body are available within that function itself and not outside of it.
+
+input1 = int(input("Enter a number: "))
+
+def input_number():
+    result = int(input("Enter a number: ")) * 100
+    return result
+
+print(result) will throw an error claiming that result is not defined - it's in function scope and not a global variable
+
+we can use variable that are declared outside of the function within the function body
+
+num = 100
+def input_number():
+    result = int(input("Enter a number: ")) * num
+    return result
+
+we can declare variables with the same name outside of the function body with global scope and within function body with function scope. In that case Python is going to use one with function scope. Only if it can not find variable with function scope will search for one with global scope
+
+num = 100
+def input_number():
+    num = 50
+    result = int(input("Enter a number: ")) * num
+    return result
+
+
+Modules
+Modules alows us to split our code base in to smaller parts. Module is file containing python definitions and statements which can later been inported and used if nesecery.
+We can:
+    - write our Module
+    - use module written by someone else
+    - use one of Python built-in modules
+
+We can use many modules out of the box when working with Python. This modules along with built-in functions form Python standard library.
+
+One of examples is math module
+It can be inported anywhere in code. Only rule that must be followed is that it must be imported before using math module entities lime sin, pi ...
+
+example: import math
+
+or all entities from math module:
+
+from math import * or import sin, pi
+
+we can even use aliases in import
+
+from math import pi as p, sin as s
+
+We can also use other modules like random, sys etc.
+
+We can also create module and use it in our code.
+
+All we need to do is to crate module_name.py file, write our module code and import it in our main python file.
