@@ -1,0 +1,89 @@
+When Python trys to execute our code and something goes wrong, python raises an exception. This means that it stops our program and it creates an exception which is a special type of data. If an exception has been raised it expect something to take care of it. However if there is nothing to take care of it, the program will be terminated and we will see the error message instead.
+Otherwise if we do handle the exception well, the suspended program can be resumed and its execution can continue.
+Exception can be handled with try and except keywords.
+Code block after the try keyword may or may not perform correctly. If it fails the code block after the except runs. 
+
+try:
+    name = "Marko"
+    print('My name is' + naem)
+except:
+    print('Something went wrong')
+
+print('All done!')
+
+Sinced we handled the exception in this case, python will return to the previous nesting, and when try except section ends rest of the code get's executed.
+
+There are many different things that can go wrong with our program. Many different types of error can be thrown. Python alows you to create exceptions that only run if a specific error has been thrown.
+
+try:
+    x = int(input("Enter a number: "))
+    y = 1 / x
+    print(y)
+except ZeroDivisionerError: # throws an error if user inputs zero as a value
+    print("You cannot devide by zero.")
+except ValueError: #throws an error if user input string as a value
+    print("Please enter an integer.")
+except: # throws an error if something else goes wrong
+    print("Something else went wrong")
+
+print("All done!")
+
+If any of except branches is executed no other branches will be will run. 
+We need to follow some rules when we work with try except keywords. Unnamed except branch must be used last in our try except block. Any except branch name can be used only once during try except block.
+
+We can handle two or more exception in the same way we can add a name in a coma separated list:
+
+except (ZeroDivisionerError, ValueError): # throws an error if user inputs zero as a value
+    print("Invalid input value.")
+
+Python alows us to manualy raise exception. To do it we need to use keyword raise.
+
+raise ZeroDivisionException
+
+It can also be used without exception name. Howerev unnamed raise can be used only inside except branch
+
+def calculate_user_input():
+    try:
+        x = int(input("Enter a number: "))
+        y = 1 / x
+        print(y)
+    except:
+        print('Something else went wrong.')
+        raise
+
+    return None
+
+calculate_user_input()
+
+To handle raise exception we need another except block:
+
+def calculate_user_input():
+    try:
+        x = int(input("Enter a number: "))
+        y = 1 / x
+        print(y)
+    except:
+        print('Something else went wrong.')
+        raise
+
+    return None
+
+try:
+    calculate_user_input()
+except ZeroDivisionError:
+    print("You cannot divide by zero.")
+except:
+    print("Exception requires more throubleshooting!")
+
+
+This can be useful if we want to simulate actual exceptions to test our handling strategy.
+
+Another keyword in python that can be used for exception handling is assert keyword. It evaluates an expression, and if this expression evaluates to true, a non zero numerical value, a non empty string or any other value different than none it wont do anything.
+Otherwise it automatically and immediately raises an exception named AssertionError. It is mostly used if we want to carefully examen the data before.
+
+import math
+x = int(input("Enter a number: "))
+assert x >= 0
+
+x = math.sqrt(x)
+print("Result:", x)
